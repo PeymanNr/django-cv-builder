@@ -52,7 +52,7 @@ The CV Builder project is a Django REST framework-based application that allows 
 ### Environment Variables
 Ensure the following environment variables are set in a `.env` file:
 - `SECRET_KEY`: Your Django secret key.
-- `DEBUG`: Set to `True` for development.
+- `DEBUG`: Set to `False` for development.
 - `DB_NAME`: Database name.
 - `DB_USER`: Database username.
 - `DB_PASSWORD`: Database password.
