@@ -1,0 +1,32 @@
+version: "3.10"
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: app
+    command:
+      sh -c "python manage.py makemigrations &&
+             python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/src
+    depends_on:
+      - db
+    env_file:
+      - .env
+  db:
+    image: postgres:14
+    container_name: postgres_db_cv
+    ports:
+      - "5433:5432"
+    env_file:
+      - .env
+
+
+volumes:
+  postgres_data:
+    driver: local
